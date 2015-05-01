@@ -2,7 +2,7 @@
 
 # directory entry is same order as sorted filename
 # .* file is moved under .t directory
-# ToDo .? file/directory is not changed
+# ToDo:  .? file/directory should be moved under .t directory
 
 unset LANG
 
@@ -34,7 +34,8 @@ resortDir () {
     rmdir .t >/dev/null 2>&1 
     if [ -d .t -a -d ../.t ] ; then
 	updir=`basename $PWD`
-	mv .t ../.t/..$updir
+#	mv .t ../.t/..$updir
+	mv .t ../.t/$updir
     fi
 )
 }
